@@ -20,13 +20,12 @@ $var = 'Listado notas';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h3><?php echo $var ?></h3>
     <form action="index.php" method="post">
-        <input type="float" name="miNota" id="miNota">
-        <input type="submit">
+        <input type="float" name="miNota" id="miNota" />
+        <input type="submit" />
     </form>
 </body>
 </html>
@@ -49,6 +48,7 @@ if(isset($_POST["miNota"])){
             echo '<td>'.$obj->universidad.'</td>';
             echo '<td>'.$obj->plazas.'</td>';
             echo '<td>'.$obj->anioPromocion.'</td>';
+            echo '<td><button onclick="pickAssignature("'.$obj->id.')">Pick</button></td>';
             echo '</tr>';
         }
 
@@ -68,9 +68,18 @@ if(isset($_POST["miNota"])){
             echo '<td>'.$obj->universidad.'</td>';
             echo '<td>'.$obj->plazas.'</td>';
             echo '<td>'.$obj->anioPromocion.'</td>';
+            echo '<td><button onclick="pickAssignature('.$obj->id.')">Pick</button></td>';
             echo '</tr>';
         }
 
     }
     echo '</table>';
 }
+
+?> 
+
+<script type="text/javascript">
+    function pickAssignature(id){
+        console.log(id);
+    }
+</script>
